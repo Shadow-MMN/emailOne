@@ -37,7 +37,7 @@ const Button = ({ text, textColor, bgColor, color = "white" }: ButtonProps) => {
         className={`w-full h-full circle bg-black p-4 relative  ${bgColor}`}
       >
         <span
-          className={`capitalize tracking-wide font-light h-full w-full block relative linear-mask flex items-center gap-2 ${textColor}`}
+          className={`capitalize tracking-wide font-light h-full w-full relative linear-mask flex items-center gap-2 ${textColor}`}
         >
           {text}
         </span>

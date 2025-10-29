@@ -3,7 +3,7 @@ import StepOneAnimation from "./animations/StepOneAnimation";
 const StepOne = () => {
   return (
     <div className="row-span-2 bg-orange-500 rounded-xl h-[828px] max-w-[490px] mx-auto flex flex-col">
-      <div className="border border-red-800 flex-1 relative">
+      <div className="flex-1 relative">
         <StepOneAnimation />
       </div>
       <div className="flex text-white flex-col gap px-8 pb-8 gap-1">
