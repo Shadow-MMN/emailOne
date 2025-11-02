@@ -4,6 +4,7 @@ import {
   NavButtonVariants,
   NavLinks,
   QuestionAnswers,
+  StepThreeCardType,
   Testimonies,
 } from "@/types";
 import { Variants } from "framer-motion";
@@ -175,3 +176,10 @@ export const navbarButtonVariants: Variants<NavButtonVariants> = {
     },
   },
 };
+
+//Step Three Constants
+export const stepThreeCardConstants: StepThreeCardType[] = [
+  { text: "HTML", bgColor: "#ff7139", tilt: 50 }, // tilted right
+  { text: "CSS", bgColor: "#1f16c9", tilt: -70 }, // tilted left
+  { text: "JS", bgColor: "#f4bf00d5", tilt: 80 }, // slightly right
+];
