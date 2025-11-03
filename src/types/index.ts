@@ -94,3 +94,10 @@ export interface ButtonProps {
   bgColor: string;
   color?: string;
 }
+
+export interface StepThreeCardType {
+  text: string;
+  bgColor: string;
+  containerRef?: React.RefObject<HTMLDivElement>;
+  tilt?: number;
+}

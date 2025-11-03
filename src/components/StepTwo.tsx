@@ -3,7 +3,7 @@ import StepTwoAnimation from "./animations/StepTwoAnimation";
 const StepTwo = () => {
   return (
     <div className="bg-black rounded-xl h-[400px] flex flex-col max-w-[490px] mx-auto">
-      <div className="border flex-1">
+      <div className="flex-1 pt-4">
         <StepTwoAnimation />
       </div>
       <div className="flex text-white flex-col px-4 md:px-8 pb-2 md:pb-8 gap gap-1">
