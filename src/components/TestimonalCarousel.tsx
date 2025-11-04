@@ -1,51 +1,69 @@
 "use client";
-import { paginNumbers } from "@/constants";
 import React, { useState } from "react";
-import { IoIosArrowRoundForward } from "react-icons/io";
-import { IoIosArrowRoundBack } from "react-icons/io";
+import { IoIosArrowRoundForward, IoIosArrowRoundBack } from "react-icons/io";
 import TestimonialCard from "./TestimonialCard";
-const TestimonalCarousel = () => {
-  const [currentPagin, setCurrentPagin] = useState<number>(1);
-  const handlePrev = (): void => {
-    if (currentPagin === 1) {
-      setCurrentPagin(1);
-    } else {
-      setCurrentPagin((prev) => prev - 1);
-    }
-  };
-  const handleNext = (): void => {
-    if (currentPagin === 3) {
-      setCurrentPagin(3);
-    } else {
-      setCurrentPagin((prev) => prev + 1);
-    }
-  };
-  return (
-    <>
-      <TestimonialCard />
+import { testimonies } from "@/constants";
 
+const TestimonalCarousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = (): void => {
+    setCurrentIndex((prev) => (prev === 0 ? testimonies.length - 1 : prev - 1));
+  };
+
+  const handleNext = (): void => {
+    setCurrentIndex((prev) => (prev === testimonies.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div>
+      {/* Carousel Container */}
+      <div className="relative w-full max-w-[1008px] overflow-hidden">
+        <div
+          className="flex transition-transform duration-700 ease-in-out "
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
+          {testimonies.map((item, index) => (
+            <div key={index} className="min-w-full flex-shrink-0">
+              <TestimonialCard {...item} />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Controls */}
       <div className="border-t mx-auto max-w-[1008px] border-[#C1C0BFB2] flex items-center justify-between px-4 py-3 my-6">
-        <button onClick={handlePrev} className="flex gap-1">
+        <button
+          onClick={handlePrev}
+          className="flex items-center gap-1 hover:opacity-80 transition"
+        >
           <IoIosArrowRoundBack className="size-6" /> Previous
         </button>
+
         <div className="flex items-center gap-3">
-          {paginNumbers.map((paginNumber) => (
+          {testimonies.map((_, idx) => (
             <button
-              onClick={() => setCurrentPagin(paginNumber)}
-              key={paginNumber}
+              onClick={() => setCurrentIndex(idx)}
+              key={idx}
               className={`py-2 px-3 rounded-lg ${
-                paginNumber === currentPagin ? "bg-[#C1C0BFB2]" : ""
+                idx === currentIndex ? "bg-[#C1C0BFB2]" : ""
               }`}
             >
-              {paginNumber}
+              {idx + 1}
             </button>
           ))}
         </div>
-        <button onClick={handleNext} className="flex gap-1">
+
+        <button
+          onClick={handleNext}
+          className="flex items-center gap-1 hover:opacity-80 transition"
+        >
           Next <IoIosArrowRoundForward className="size-6" />
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
