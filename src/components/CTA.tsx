@@ -1,4 +1,5 @@
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Button from "./sub/Button";
 const CTA = () => {
   return (
     <section className="white-gradient px-8 md:px-0">
@@ -12,9 +13,17 @@ const CTA = () => {
           templates. Get started today and watch your campaigns soar to new
           heights!&#34;
         </p>
-        <button className="bg-black circle px-8 py-5 text-white flex items-center gap-1">
-          Get Started Now <IoIosArrowRoundForward className="size-6" />
-        </button>
+
+        <Button
+          text={
+            <>
+              Get Started Now
+              <IoIosArrowRoundForward className="size-6" />
+            </>
+          }
+          textColor="text-white"
+          bgColor="bg-black"
+        />
       </div>
     </section>
   );
