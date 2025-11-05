@@ -1,3 +1,4 @@
+"use client";
 import { ButtonProps } from "@/types";
 import { motion } from "framer-motion";
 
