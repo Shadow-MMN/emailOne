@@ -1,6 +1,7 @@
 import { Testimonies } from "@/types";
 import Image from "next/image";
 import { IoStarSharp } from "react-icons/io5";
+
 const TestimonialCard = ({
   testimony,
   username,
